@@ -17,6 +17,9 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-provider-payment8004</module>
         <module>cloud-zookeeper-consumer80</module>
+        <module>cloud-provider-payment8006</module>
+        <module>cloud-consul-consumer80</module>
+        <module>cloud-feign-consumer</module>
     </modules>
 
     <name>Maven</name>

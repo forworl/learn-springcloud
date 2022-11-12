@@ -1,8 +1,8 @@
-package com.atguigu.springcloud.controller;
+package springcloud.controller;
 
-import com.atguigu.springcloud.entity.CommentResult;
-import com.atguigu.springcloud.entity.Payment;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -18,9 +18,9 @@ public class PaymentController {
     private RestTemplate restTemplate;
 
 
-    @GetMapping("/zk")
+    @GetMapping("/consul")
     public String paymentInfo() {
 
-        return restTemplate.getForObject(PAYMENT_URL + "/zk", String.class);
+        return restTemplate.getForObject(PAYMENT_URL + "/consul", String.class);
     }
 }

@@ -1,6 +1,7 @@
 package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.entity.CommentResult;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import com.atguigu.springcloud.entity.Payment;
@@ -26,5 +27,16 @@ public class PaymentController {
     public CommentResult getPaymentById(@PathVariable("id") Long id) {
 
         return restTemplate.getForObject(PAYMENT_URL + "/get/" + id, CommentResult.class);
+    }
+
+    @GetMapping("/getEntity/{id}")
+    public CommentResult<Payment> getPaymentById2(@PathVariable("id") Long id) {
+
+        ResponseEntity<CommentResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/get/" + id, CommentResult.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        } else {
+            return new CommentResult<>(444, "操作失败");
+        }
     }
 }
