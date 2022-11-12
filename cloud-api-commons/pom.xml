@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.atguigu</groupId>
-    <artifactId>cloud-ali-comments</artifactId>
+    <groupId>com.atguigu.springcloud</groupId>
+    <artifactId>cloud-api-commons</artifactId>
 
     <dependencies>
         <dependency>

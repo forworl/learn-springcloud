@@ -11,7 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.sql.Time;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/payment")
@@ -59,5 +61,15 @@ public class PaymentController {
             System.out.println(instance.getServiceId()+instance.getHost()+instance.getPort()+instance.getUri());
         }
         return discoveryClient;
+    }
+
+    @GetMapping("feign/timeout")
+    public String feignTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPost;
     }
 }
